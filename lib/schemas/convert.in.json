@@ -1,0 +1,24 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "filename": {
+                    "description": "The file to upload and convert",
+                    "type": "string"
+                },
+                "source": {
+                    "description": "The text of a Swagger 2.0 definition to convert",
+                    "type": "string"
+                },
+                "validate": {
+                    "type": "string",
+                    "enum": [
+                        "on"
+                    ]
+                }
+            }
+        }
+    }
+}

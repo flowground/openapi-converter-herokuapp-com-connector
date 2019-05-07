@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "filename": {
+                    "description": "The file to upload and validate",
+                    "type": "string"
+                },
+                "source": {
+                    "description": "The text of an OpenAPI 3.0.x definition to validate",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

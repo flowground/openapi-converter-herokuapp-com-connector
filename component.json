@@ -1,0 +1,137 @@
+{
+    "title": "Swagger2OpenAPI Converter",
+    "description": "Converter and validator for Swagger 2.0 to OpenAPI 3.0.x definitions",
+    "docsUrl": "https://github.com/mermade/openapi-webconverter",
+    "url": "https://api.apis.guru/v2/specs/openapi-converter.herokuapp.com/1.0.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://openapi-converter.herokuapp.com/api/v1",
+                    "http://openapi-converter.herokuapp.com/api/v1",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "getBadge": {
+            "main": "./lib/actions/getBadge.js",
+            "title": "Return a redirect to a badge svg file depending on a source definition's validity",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getBadge.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "convertUrl": {
+            "main": "./lib/actions/convertUrl.js",
+            "title": "Convert a Swagger 2.0 definition to OpenAPI 3.0.x from a URL",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/convertUrl.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "convert": {
+            "main": "./lib/actions/convert.js",
+            "title": "Convert a Swagger 2.0 definition passed in the body to OpenAPI 3.0.x ",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/convert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getStatus": {
+            "main": "./lib/actions/getStatus.js",
+            "title": "Get the status of the API",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getStatus.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "validateUrl": {
+            "main": "./lib/actions/validateUrl.js",
+            "title": "Validate an OpenAPI 3.0.x definition",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/validateUrl.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "validate": {
+            "main": "./lib/actions/validate.js",
+            "title": "Validate an OpenAPI 3.0.x definition supplied in the body of the request",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/validate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
